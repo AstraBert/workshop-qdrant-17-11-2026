@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PubMed Search</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono&family=Mona+Sans:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <img class="logo logo-dark" src="/logo-dark.svg" alt="Qdrant" />
+      <img class="logo logo-light" src="/logo-light.svg" alt="Qdrant" />
+      <span class="pill" id="info">Qdrant Edge</span>
+    </header>
+
+    <main>
+      <h1>Search PubMed</h1>
+      <p class="lead">
+        Semantic search over biomedical abstracts. Describe what you need in
+        your own words.
+      </p>
+
+      <form class="search-form" id="search-form" role="search">
+        <input
+          id="query"
+          type="search"
+          placeholder="For example: how do tumors resist immunotherapy?"
+          autocomplete="off"
+          required
+          autofocus
+        />
+        <button class="button-primary" type="submit">Search</button>
+      </form>
+
+      <div class="examples" id="examples"></div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+      <ol class="results" id="results"></ol>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PubMed Search</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono&family=Mona+Sans:wght@400;500;600&display=swap"
+    />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <img class="logo logo-dark" src="/logo-dark.svg" alt="Qdrant" />
+      <img class="logo logo-light" src="/logo-light.svg" alt="Qdrant" />
+      <span class="pill" id="info">Qdrant Cloud</span>
+    </header>
+
+    <main>
+      <h1>Search PubMed</h1>
+      <p class="lead">
+        Search biomedical abstracts by meaning, by exact words, or both. Narrow
+        the results with filters.
+      </p>
+
+      <form class="search-form" id="search-form" role="search">
+        <input
+          id="query"
+          type="search"
+          placeholder="For example: how do tumors resist immunotherapy?"
+          autocomplete="off"
+          required
+          autofocus
+        />
+        <button class="button-primary" type="submit">Search</button>
+      </form>
+
+      <div class="modes" role="radiogroup" aria-label="Search mode">
+        <label><input type="radio" name="mode" value="dense" />Semantic</label>
+        <label><input type="radio" name="mode" value="keyword" />Keyword</label>
+        <label><input type="radio" name="mode" value="hybrid" checked />Hybrid</label>
+      </div>
+
+      <details class="filters" id="filters">
+        <summary>Filters</summary>
+        <div class="filter-grid">
+          <label>
+            Title contains all of
+            <input id="title-contains" type="text" placeholder="cancer therapy" />
+          </label>
+          <label>
+            Abstract contains none of
+            <input id="abstract-excludes" type="text" placeholder="mice rats" />
+          </label>
+          <label>
+            PMID from
+            <input id="pmid-min" type="number" min="0" placeholder="30000000" />
+          </label>
+          <label>
+            PMID to
+            <input id="pmid-max" type="number" min="0" placeholder="40000000" />
+          </label>
+        </div>
+      </details>
+
+      <div class="examples" id="examples"></div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+      <ol class="results" id="results"></ol>
+    </main>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

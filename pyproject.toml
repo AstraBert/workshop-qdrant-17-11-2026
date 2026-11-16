@@ -1,0 +1,30 @@
+[project]
+name = "workshop-18-nov-2026-qdrant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { email = "astraberte9@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = []
+
+[project.scripts]
+workshop-18-nov-2026-qdrant = "workshop_18_nov_2026_qdrant:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.workspace]
+members = [
+    "packages/prototype-with-edge",
+    "packages/self-hosted-qdrant",
+    "packages/qdrant-cloud",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.17.5",
+    "ty>=0.0.104",
+]

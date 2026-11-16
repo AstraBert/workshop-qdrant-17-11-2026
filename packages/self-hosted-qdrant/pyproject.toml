@@ -1,0 +1,27 @@
+[project]
+name = "self-hosted-qdrant"
+version = "0.1.0"
+description = "Search PubMed abstracts with self-hosted Qdrant and hybrid search"
+readme = "README.md"
+authors = [
+    { email = "astraberte9@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi>=0.163.1",
+    "httpx>=0.28.1",
+    "huggingface-hub>=2.4.0",
+    "pyarrow>=26.0.1",
+    "pydantic-settings>=2.16.3",
+    "qdrant-client>=1.20.0",
+    "tqdm>=4.70.1",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+self-hosted-qdrant = "self_hosted_qdrant:main"
+self-hosted-qdrant-ingest = "self_hosted_qdrant.ingest:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
